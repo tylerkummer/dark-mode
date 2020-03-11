@@ -5,12 +5,12 @@ export const useDarkMode = () => {
     const [value, setValue] = useLocalStorage('dark-mode', true);
 
     useEffect(() => {
-        if(useLocalStorage.value === true){
-            document.body.classList.add('dark-mode');
+        if(value === true){
+           return document.body.classList.add('dark-mode');
         } else {
-            document.body.classList.remove('dark-mode');
+            return document.body.classList.remove('dark-mode');
         }
-    });
+    }, [setValue]);
 
     return [value, setValue];
 }
